@@ -1,0 +1,283 @@
+%------------------------------------------------------------------------------
+% PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%------------------------------------------------------------------------------
+\documentclass[a4paper,spanish]{article}
+\usepackage{header}
+\begin{document}
+%------------------------------------------------------------------------------
+% TITLE SECTION
+%------------------------------------------------------------------------------
+\title{Álgebra I - Final}
+\author{Leandro Ezequiel Barrios}
+\date{28/07/2015}
+\maketitle
+
+%------------------------------------------------------------------------------
+% Ejercicio 1
+%------------------------------------------------------------------------------
+\section{%
+  Sea $\mathfrak{R}$ la relación en $A := \{10, ..., 1000\}$ %
+  definida por $(n:m) \neq 1.$%
+}
+
+\subsection{Determine si $\mathfrak{R}$ es reflexiva, simétrica, antisimétrica o transitiva.}
+\subsection{Encuentre la cantidad de $m \in A$ tales que $m \mathfrak{R} 12$}
+
+%------------------------------------------------------------------------------
+% Ejercicio 2
+%------------------------------------------------------------------------------
+\section{%
+  Sea $a \in \Z$ tal que $(a^{182}-26:130) = 13$. %
+  Calcule $(a^{25}-39:2 \cdot 5^3 \cdot 13^2)$%
+}
+
+%------------------------------------------------------------------------------
+% Ejercicio 3
+%------------------------------------------------------------------------------
+\section{%
+  Para cada $n \in \N$, encuentre el resto de dividir por $7$ a $n^{3n}$%
+  en términos de una congruencia apropiada de $n$.%
+}
+
+\newcommand{\equivseven}{\underset{(7)}\equiv}
+\newcommand{\equivtwo}{\underset{(2)}\equiv}
+\begin{itemize}
+
+%%%----------------------------------------------------------------------------
+%%% Caso n==0 (7)
+%%%----------------------------------------------------------------------------
+\item
+Supongo $n \equivseven 0 $,
+\[
+  n^{3n} \equivseven 0^{3n} \equivseven 0 
+\]\[ \Leftrightarrow \]
+\begin{center}\fbox{$
+  n^{3n} \equivseven 0
+$}\end{center}
+
+%%%----------------------------------------------------------------------------
+%%% Caso n==1 (7)
+%%%----------------------------------------------------------------------------
+\item
+Supongo $n \equivseven 1$,
+\[
+  n^{3n} \equivseven 1^{3n} \equivseven 1 
+\]\[ \Leftrightarrow \]
+\begin{center}\fbox{$
+  n^{3n} \equivseven 1 
+$}\end{center}
+
+%%%----------------------------------------------------------------------------
+%%% Caso n==2 (7)
+%%%----------------------------------------------------------------------------
+\item
+Supongo $n \equivseven 2$,
+\[
+  n^{3n} \equivseven 2^{3n} \equivseven {(2^3)}^n \equivseven 8^n (7) \equivseven 1^n \equivseven 1
+\]\[ \Leftrightarrow \]
+\begin{center}\fbox{$
+  n^{3n} \equivseven 1
+$}\end{center}
+
+%%%----------------------------------------------------------------------------
+%%% Caso n==3 (7)
+%%%----------------------------------------------------------------------------
+\item
+Supongo $n \equivseven 3$,
+
+\[
+  n^{3n} \equivseven 3^{3n} \equivseven {(3^3)}^n \equivseven 27^n \equivseven 6^n
+\]\[ \Leftrightarrow \]\[
+  n^{3n} \equivseven 6^n
+\]
+
+...además,
+\[
+  n \equivseven 3 \then \exists k \in \Z: n = 7k + 3
+\]
+
+...entonces, para algún $k \in \Z$,
+\begin{align*}
+n^{3n} &\equivseven 6^n = 6^{7k+3}                    \\
+n^{3n} &\equivseven {(6^7)}^k * 6^3                   \\
+n^{3n} &\equivseven {(6 * {(6^2)}^3)}^k * 6 * 6^2     \\
+n^{3n} &\equivseven 6^k * {(36^3)}^k * 6 * 36         \\
+n^{3n} &\equivseven 6^k * {(1^3)}^k * 6 * 1           \\
+n^{3n} &\equivseven 6^k * 1^k * 6                     \\
+n^{3n} &\equivseven 6^k * 6                           \\
+n^{3n} &\equivseven 6^{k+1}                           \\
+\end{align*}
+
+\[
+\left\{
+\begin{array}{lrl}
+Caso:~ k \equivtwo 0 &\iif k+1 \equivtwo 1 & \iif n = 7k + 3 \equivtwo 3 \equivtwo 1 \\
+&\then n^{3n} &\equivseven 6^{k+1} \\
+& \cdots &\equivseven 6^{k} * 6 \\
+& \cdots &\equivseven {(6^2)}^{k/2} * 6 \\
+& \cdots &\equivseven 1^k * 6 \\
+& \cdots &\equivseven 6 \\
+\\
+Caso:~ k \equivtwo 1 &\iif k+1 \equivtwo 0 & \iif n = 7k + 3 \equivtwo 7+3 \equivtwo 0 \\
+&\then n^{3n} &\equivseven 6^{k+1} \\
+& \cdots &\equivseven {(6^2)}^{(k+1)/2} \\
+& \cdots &\equivseven 1^{(k+1)/2} \\
+& \cdots &\equivseven 1 \\
+\end{array}
+\right .
+\]
+
+\begin{empheq}[box=\widefbox]{align*}
+  n \equivtwo 0 &\then n^{3n} \equivseven 1\\
+  n \equivtwo 1 &\then n^{3n} \equivseven 6
+\end{empheq}
+
+%%%----------------------------------------------------------------------------
+%%% Caso n==4 (7)
+%%%----------------------------------------------------------------------------
+\item
+Supongo $n \equiv 4 (7)$,
+
+\[
+  n^{3n} \equiv 4^{3n} \equiv {(4^3)}^n \equiv 64^n \equiv 1^n \equiv 1 (7)
+\]\[ \Leftrightarrow \]
+\begin{center}\fbox{$
+  n^{3n} \equiv 1 (7)
+$}\end{center}
+
+%%%----------------------------------------------------------------------------
+%%% Caso n==5 (7)
+%%%----------------------------------------------------------------------------
+\item
+Supongo $n \equivseven 5$,
+
+\[
+  n^{3n} \equivseven 5^{3n} \equivseven {(5^3)}^n \equivseven 125^n \equivseven 6^n
+\]\[ \Leftrightarrow \]\[
+  n^{3n} \equivseven 6^n
+\]
+
+...además,
+\[
+  n \equivseven 5 \then \exists k \in \Z: n = 7k + 5
+\]
+
+...entonces, para algún $k \in \Z$,
+\begin{align*}
+n^{3n} &\equivseven 6^n \\
+n^{3n} &\equivseven 6^{7k+5} \\
+n^{3n} &\equivseven {(6^7)}^k * 6^5 \\
+n^{3n} &\equivseven {(6 * {(6^2)}^3)}^k * 6 * {(6^2)}^2 \\
+n^{3n} &\equivseven 6^k * {(36^3)}^k * 6 * 36^2 \\
+n^{3n} &\equivseven 6^k * {(1^3)}^k * 6 * 1^2 \\
+n^{3n} &\equivseven 6^k * 1^k * 6 \\
+n^{3n} &\equivseven 6^k * 6 \\
+n^{3n} &\equivseven 6^{k+1}
+\end{align*}
+
+\[
+\left\{
+\begin{array}{lrl}
+Caso:~ k \equivtwo 0 &\iif k+1 \equivtwo 1 & \iif n = 7k + 5 \equivtwo 5 \equivtwo 1 \\
+&\then n^{3n} &\equivseven 6 \\
+\\
+Caso:~ k \equivtwo 1 &\iif k+1 \equivtwo 0 & \iif n = 7k + 5 \equivtwo 7+5 \equivtwo 0 \\
+&\then n^{3n} &\equivseven 1 \\
+\end{array}
+\right.
+\]
+
+\begin{empheq}[box=\widefbox]{align*}
+  n \equivtwo 0 &\then n^{3n} \equivseven 1\\
+  n \equivtwo 1 &\then n^{3n} \equivseven 6
+\end{empheq}
+
+%%%----------------------------------------------------------------------------
+%%% Caso n==6 (7)
+%%%----------------------------------------------------------------------------
+\item
+Supongo $n \equiv 6 (7)$,
+
+\[
+  n^{3n} \equiv 6^{3n} \equiv {(6^3)}^n \equiv 216^n \equiv 6^n (7)
+\]\[ \Leftrightarrow \]\[
+  n^{3n} \equiv 1 (7)
+\]
+
+...además,
+\[
+  n \equivseven 6 \then \exists k \in \Z: n = 7k + 6
+\]
+
+...entonces, para algún $k \in \Z$,
+\begin{align*}
+n^{3n} &\equivseven 6^n \\
+n^{3n} &\equivseven 6^{7k+6} \\
+n^{3n} &\equivseven {(6^7)}^k * 6^6 \\
+n^{3n} &\equivseven {(6 * {(6^2)}^3)}^k * {(6^2)}^3 \\
+n^{3n} &\equivseven 6^k * {(36^3)}^k * 36^3 \\
+n^{3n} &\equivseven 6^k * {(1^3)}^k * 1^3 \\
+n^{3n} &\equivseven 6^k * 1^k \\
+n^{3n} &\equivseven 6^k
+\end{align*}
+
+\[
+\left\{
+\begin{array}{lrl}
+Caso:~ k \equivtwo 0 &\iif k+1 \equivtwo 1 & \iif n = 7k + 6 \equivtwo 6 \equivtwo 0 \\
+                                &                   \then n^{3n} & \equivseven 6^k \\
+                                &                         \cdots & \equivseven {(6^2)}^{k/2} \\
+                                &                         \cdots & \equivseven 36^{k/2} \\
+                                &                         \cdots & \equivseven 1^{k/2} \\
+                                &                         \cdots & \equivseven 1 \\
+Caso:~ k \equivtwo 1 &\iif k+1 \equivtwo 0 & \iif n = 7k + 6 \equivtwo 7+6 \equivtwo 1 \\
+                                &                   \then n^{3n} & \equivseven 6^k \\
+                                &                         \cdots & \equivseven 6^{k-1+1} \\
+                                &                         \cdots & \equivseven 6^{k-1} * 6 \\
+                                &                         \cdots & \equivseven 6^{2*(k-1)/2} * 6 \\
+                                &                         \cdots & \equivseven {(6^2)}^{(k-1)/2} * 6 \\
+                                &                         \cdots & \equivseven {36}^{(k-1)/2} * 6 \\
+                                &                         \cdots & \equivseven {1}^{(k-1)/2} * 6 \\
+                                &                         \cdots & \equivseven 1^{k/2} *6 \\
+                                &                         \cdots & \equivseven 6 \\
+\end{array}
+\right.
+\]
+
+\begin{empheq}[box=\widefbox]{align*}
+  n \equivtwo 0 &\then n^{3n} \equivseven 1\\
+  n \equivtwo 1 &\then n^{3n} \equivseven 6
+\end{empheq}
+
+\end{itemize}
+
+%------------------------------------------------------------------------------
+% Ejercicio 3
+%------------------------------------------------------------------------------
+\section{%
+Sea $f \in \Q[X]$ el polinomio $f = X^4 + X^3 + X^2 + X + 1$.%
+}
+  %------------------------------------------------------------------------------
+  % Item A
+  %------------------------------------------------------------------------------
+  \subsection{%
+    Pruebe que $f$ es irreductible en $\Q[X]$.%
+  }
+
+  %------------------------------------------------------------------------------
+  % Item B
+  %------------------------------------------------------------------------------
+  \subsection{%
+    Para cada número natural $n$ calcule $(f:X^n-1)$.%
+  }
+  
+  %------------------------------------------------------------------------------
+  % Item C
+  %------------------------------------------------------------------------------
+  \subsection{%
+    Pruebe que si $p \in \Q[X]$ tiene como raíz a alguna raíz quinta %
+    primitiva de la unidad, entonces todas las raíces quintas primitivas %
+    de la unidad son raíces de $p$%
+  }
+
+\end{document}
