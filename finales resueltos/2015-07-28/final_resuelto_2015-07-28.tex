@@ -19,9 +19,165 @@
   Sea $\mathfrak{R}$ la relación en $A := \{10, ..., 1000\}$ %
   definida por $(n:m) \neq 1.$%
 }
+  %----------------------------------------------------------------------------
+  % Item A
+  %----------------------------------------------------------------------------
+  \subsection{%
+    Determine si $\mathfrak{R}$ es reflexiva, simétrica, antisimétrica %
+    o transitiva.%
+  }
 
-\subsection{Determine si $\mathfrak{R}$ es reflexiva, simétrica, antisimétrica o transitiva.}
-\subsection{Encuentre la cantidad de $m \in A$ tales que $m \mathfrak{R} 12$}
+  \begin{itemize}
+    %--------------------------------------------------------------------------
+    % Reflexividad
+    %--------------------------------------------------------------------------
+    \item Reflexividad: $\forall a \in A,\> a\mathfrak{R}a$
+    \begin{align*}
+      a\mathfrak{R}a \iif (a:a) &\neq 1 \\
+      (a:a) &= a \\
+      a &\neq 1
+    \end{align*}
+    Luego, $a\mathfrak{R}a$, entonces $\mathfrak{R}$ es reflexiva.
+
+    %--------------------------------------------------------------------------
+    % Simetría
+    %--------------------------------------------------------------------------
+    \item Simetría: $\forall n,m \in A,\> n\mathfrak{R}m \iif m\mathfrak{R}n$
+    \begin{align*}
+      n\mathfrak{R}m      &\iif (n:m) \neq 1\\
+      (n:m) \neq 1 \quad  &\iif \quad (m:n) \neq 1 \\
+      (m:n) \neq 1        &\iif m\mathfrak{R}n
+    \end{align*}
+    Luego, $n\mathfrak{R}m \iif m\mathfrak{R}n$,
+    entonces $\mathfrak{R}$ es simétrica.
+
+    %--------------------------------------------------------------------------
+    % Antisimetría
+    %--------------------------------------------------------------------------
+    \item Antisimetría: $\forall n,m \in A,\> 
+    n\mathfrak{R}m \land m\mathfrak{R}n \then n=m$
+
+    Basta con encontrar un contraejemplo para ver que $\mathfrak{R}$ 
+    no es antisimétrica.
+    \begin{align*}
+      (10:20) \neq 1 \iif 10\>\mathfrak{R}\>20 \\
+      (20:10) \neq 1 \iif 20\>\mathfrak{R}\>10
+    \end{align*}
+    $10\mathfrak{R}20 \land 20\mathfrak{R}10$, pero $10 \neq 20$, por lo que
+    $\mathfrak{R}$ no es antisimétrica.
+
+    %--------------------------------------------------------------------------
+    % Transitividad
+    %--------------------------------------------------------------------------
+    \item Transitividad: $\forall a,b,c \in A,\>
+    a\mathfrak{R}b \land b\mathfrak{R}c \then a\mathfrak{R}c$
+
+    Dados $a,b,c \in A$, $a\mathfrak{R}b$, $b\mathfrak{R}c$, se que
+    \begin{align*}
+      a\mathfrak{R}b \iif (a:b) \neq 1 \\
+      b\mathfrak{R}c \iif (b:c) \neq 1
+    \end{align*}
+
+    Basta con encontrar un contraejemplo para ver que $\mathfrak{R}$ 
+    no es transitiva.\\
+    Dados $a=2,\> b=6,\> c=3$,
+    \begin{align*}
+      (2:6) = 2 \neq 1 \then 2\>\mathfrak{R}\>6 \\
+      (6:3) = 3 \neq 1 \then 6\>\mathfrak{R}\>3 \\
+    \end{align*}
+
+    pero $(2:3) = 1$, por lo que $2\> \cancel{\mathfrak{R}}\> 3$.
+    Luego, $\mathfrak{R}$ no es transitiva.
+
+  \end{itemize}
+
+  \subsection{%
+  Encuentre la cantidad de $m \in A$ tales que $m\> \mathfrak{R}\> 12$%
+  }
+
+    Quiero encontrar todos los m tales que $m\>\mathfrak{R}\>12$, siendo que  
+    $m\>\mathfrak{R}\>12 \iif (m:12) \neq 1$.
+
+    Factorizando $12$ en primos, se que 
+    \[
+      12 = 2^2 \cdot 3
+    \]
+
+    Entonces, dado $d$ el $mcm$ entre $m$ y $12$, se cumple que
+    \[
+      d = (m:12) \neq 1
+      \iif
+      (d \neq 1 \land d \mid m \land d \mid 12)
+    \] 
+
+    En particular, 
+    \[
+      (d \mid 12 \land 12=2^2 \cdot 3)
+      \then d \mid 2^2 \cdot 3 
+      \then (2 \mid d \lor 3 \mid d)
+    \]
+
+    Es decir que $d$ es múltiplo de $2$ o de $3$. Luego, por transitividad
+    \begin{align*}
+      (d \mid m) \land (2 &\mid d \lor 3 \mid d) \\
+      (2\mid d \land d \mid m) &\lor (3 \mid d \land d \mid m) \\
+      (2 \mid m)               &\lor (3 \mid m)
+    \end{align*}
+
+    Lo que singnifica que basta con ver cuántos $m \in A$ cumplen esta 
+    última condición.
+
+    \begin{itemize}
+
+      \item Múltiplos de 2:
+
+      Si tomo el conjunto $A$, y para cada número calculo el resto módulo 2, voy 
+      a formar un nuevo conjunto
+      \[
+        A_2 = \{0, 1, 0, \cdots, 1, 0\}
+      \]
+      en donde, sin contar el caso del último número, cada dos números 
+      uno de ellos es divisible por 2. 
+
+      Luego, dado que A tiene 990 números (sin contar el último),
+      la cantidad de números divisibles por 2 es $990/2 + 1 = 496$.
+
+      \item Múltiplos de 3:
+
+      Usando un razonamiento similar al descripto arriba, formo el conjunto
+      \[
+        A_3 = \{\underbrace{1, 2}_{2}, \underbrace{0, 1, 2, 0, 
+        \cdots, 0, 1, 2}_{987}, \underbrace{0, 1}_{2}\}
+      \]
+      en donde, sin contar los primeros y últimos dos números, cada 3 de ellos
+      uno es divisible por 3. Luego, tengo $987/3 + 1 = 990/3 = 330$ números
+      divisibles por 3.
+
+      \item Múltiplos de 6:
+
+      Ahora bien, si yo sumo la cantidad de múltiplos de 2 más la cantidad de
+      múltiplos de 3, estoy contando 2 veces a los números que son múltiplos de 6,
+      que son múltiplos de 2 y de 3. Para evitar esto, voy a calcular la cantidad
+      de múltiplos de 2 más la cantidad de múltiplos de 3 menos la cantidad de
+      múltiplos de 6.
+
+      Usando el mismo razonamiento, formo el conjunto
+      \[
+        B_6 = \{\underbrace{4, 5}_{2}, \underbrace{0, 1, 2, 3, 4, 5, 
+        \cdots, 0, 1, 2, 3, 4, 5}_{984}, \underbrace{0, 1, 2, 3, 4}_{5} \}
+      \]
+      en donde, sin contar los primeros 2 y los últimos 5, tengo 984 números
+      en donde cada 6 números, uno de ellos es múltiplo de 6.
+
+      Luego, tengo $984/6 + 1 = 990/6 = 165$ múltiplos de 6.
+
+    \end{itemize}
+
+    Finalmente, tengo $496 + 330 - 165 = 661$ múltiplos de 2 o de 3 que 
+    pertenecen a $A$. 
+
+    Es decir que tengo $661$ posibles $m$ tales que
+    $m\>\mathfrak{R}\>12$.
 
 %------------------------------------------------------------------------------
 % Ejercicio 2
@@ -30,6 +186,133 @@
   Sea $a \in \Z$ tal que $(a^{182}-26:130) = 13$. %
   Calcule $(a^{25}-39:2 \cdot 5^3 \cdot 13^2)$%
 }
+
+\newcommand{\equivfive}{\underset{(5)}\equiv}
+\newcommand{\nequivfive}{\underset{(5)}\equiv}
+
+  \begin{align*}
+    (a^{182}-26:130) = 13 \then 13   &\mid a^{182}-26                       \\
+                            \iif 13   &\mid a^{182} - 26 + (13 \cdot 2)     \\
+                            \iif 13   &\mid a^{182}                         \\
+                            \iif 13   &\mid a                               \\
+    \\
+    2 \mid 130 \land 2 \nmid (a^{182}-26:130) %
+                          \then 2     &\nmid a^{182}-26                     \\
+                            \iif 2    &\nmid a^{182} - 26 + (2 \cdot 13)    \\
+                            \iif 2    &\nmid a^{182}                        \\
+                            \iif 2    &\nmid a                              \\
+    \\
+                            13 \mid a \iif 13^{25} &\mid a^{25}             \\
+    13^2 \mid 13^{25} \land 13^{25} \mid a^{25} %
+                           \then 13^2 &\mid a^{25}                          \\
+    13 \mid 39 \land 13^2 \mid a^{25} %
+                           \then 13^2 &\mid a^{25} + 39                     \\
+    \\
+                    2 \nmid a \then 2 &\nmid a^25                           \\
+    2 \nmid 39 \land 2 \nmid a^{25} %
+                              \then 2 &\mid a^{25} - 39                     \\
+    \\
+    5 \mid 130 \land 5 \nmid (a^{182}-26:130) %
+                              \then 5 &\nmid a^{182} - 26
+  \end{align*}
+
+  \subsection*{Caso $a \equivfive 0$:}
+  \begin{align*}
+    a \equivfive 0 \then a^{182} - 26 &\equivfive 0^{182} - 26              \\
+                   \iif  a^{182} - 26 &\equivfive -26                       \\
+                   \iif  a^{182} - 26 &\equivfive -1                        \\
+                   \iif  a^{182} - 26 &\equivfive 4                         \\
+    a \equivfive 0 \then a^{25} - 39  &\equivfive 0^{25} - 39               \\
+                   \iif  a^{25} - 39  &\equivfive -39                       \\
+                   \iif  a^{25} - 39  &\equivfive -4                        \\
+                   \iif  a^{25} - 39  &\equivfive 1
+  \end{align*}
+
+  es decir que, para $a \equivfive 0$, $a^{25} - 39$ no es múltiplo de 5.
+
+  \subsection*{Caso $a \equivfive 1$:}
+  \begin{align*}
+    a \equivfive 1 \then a^{182} - 26 &\equivfive 1^{182} - 26              \\
+                   \iif  a^{182} - 26 &\equivfive 1       - 1               \\
+                   \iif  a^{182} - 26 &\equivfive 0
+  \end{align*}
+
+  pero $5 \nmid a^{182} - 26$ por lo que $a \not\equivfive 1$.
+
+  \subsection*{Caso $a \equivfive 2$:}
+  \begin{align*}
+    a \equivfive 2 \then a^{182} - 26 &\equivfive 2^{182} - 26              \\
+                   \iif  a^{182} - 26 &\equivfive (2^2)^{91}  - 1           \\
+                   \iif  a^{182} - 26 &\equivfive 4^{90 + 1}  - 1           \\
+                   \iif  a^{182} - 26 &\equivfive (4^2)^{45} \cdot 4^1  - 1 \\
+                   \iif  a^{182} - 26 &\equivfive 16^{45} \cdot 4  - 1      \\
+                   \iif  a^{182} - 26 &\equivfive 1^{45} \cdot 4  - 1       \\
+                   \iif  a^{182} - 26 &\equivfive 3                         \\
+    a \equivfive 2 \then a^{25} - 39  &\equivfive 2^{25} - 39               \\
+                   \iif  a^{25} - 39  &\equivfive 2^{24+1} + 1              \\
+                   \iif  a^{25} - 39  &\equivfive (2^2)^{12} \cdot 2 + 1    \\
+                   \iif  a^{25} - 39  &\equivfive 4^{12} \cdot 2 + 1        \\
+                   \iif  a^{25} - 39  &\equivfive (4^2)^{6} \cdot 2 + 1     \\
+                   \iif  a^{25} - 39  &\equivfive 16^{6} \cdot 2 + 1        \\
+                   \iif  a^{25} - 39  &\equivfive 1^{6} \cdot 2 + 1         \\
+                   \iif  a^{25} - 39  &\equivfive 2 + 1                     \\
+                   \iif  a^{25} - 39  &\equivfive 3
+  \end{align*}
+
+  es decir que, para $a \equivfive 2$, $a^{25} - 39$ no es múltiplo de 5.
+
+  \subsection*{Caso $a \equivfive 3$:}
+  \begin{align*}
+    a \equivfive 2 \then a^{182} - 26 &\equivfive 3^{182} - 26              \\
+                   \iif  a^{182} - 26 &\equivfive (3^2)^{91} - 1            \\
+                   \iif  a^{182} - 26 &\equivfive 9^{91} - 1                \\
+                   \iif  a^{182} - 26 &\equivfive 4^{90 + 1} - 1            \\
+                   \iif  a^{182} - 26 &\equivfive (4^2)^{45} \cdot 4^1 - 1  \\
+                   \iif  a^{182} - 26 &\equivfive 16^{45} \cdot 4 - 1       \\
+                   \iif  a^{182} - 26 &\equivfive 1^{45} \cdot 4 - 1        \\
+                   \iif  a^{182} - 26 &\equivfive 4 - 1                     \\
+                   \iif  a^{182} - 26 &\equivfive 3                         \\
+    a \equivfive 2 \then a^{25} - 39  &\equivfive 3^{25} - 39               \\
+                   \iif  a^{25} - 39  &\equivfive 3^{24 + 1} + 1            \\
+                   \iif  a^{25} - 39  &\equivfive (3^2)^{12} \cdot 3 + 1    \\
+                   \iif  a^{25} - 39  &\equivfive 9^{12} \cdot 3 + 1        \\
+                   \iif  a^{25} - 39  &\equivfive 4^{12} \cdot 3 + 1        \\
+                   \iif  a^{25} - 39  &\equivfive (4^2)^{6} \cdot 3 + 1     \\
+                   \iif  a^{25} - 39  &\equivfive (16)^{6} \cdot 3 + 1      \\
+                   \iif  a^{25} - 39  &\equivfive (1)^{6} \cdot 3 + 1       \\
+                   \iif  a^{25} - 39  &\equivfive 3 + 1                     \\
+                   \iif  a^{25} - 39  &\equivfive 4                         \\
+  \end{align*}
+
+  es decir que, para $a \equivfive 3$, $a^{25} - 39$ no es múltiplo de 5.
+
+  \subsection*{Caso $a \equivfive 4$:}
+  \begin{align*}
+    a \equivfive 2 \then a^{182} - 26 &\equivfive 4^{182} - 26              \\
+                   \iif  a^{182} - 26 &\equivfive (4^2)^{91} - 1            \\
+                   \iif  a^{182} - 26 &\equivfive 16^{91} - 1               \\
+                   \iif  a^{182} - 26 &\equivfive 1^{91} - 1                \\
+                   \iif  a^{182} - 26 &\equivfive 0                         \\
+  \end{align*}
+
+  pero $5 \nmid a^{182} - 26$ por lo que $a \not\equivfive 4$.
+
+  \subsection*{}
+  Entonces, cualquiera sea el a, siempre que cumpla $(a^{182}-26:130) = 13$,
+  se que $5 \nmid a^{182} - 26$. 
+
+  Finalmente, dadas las siguientes condiciones, 
+
+  \begin{align*}
+    2 \mid 2 \cdot 5^3 \cdot 13^2     &\land 2 \mid a^{25}-39 \\
+    5 \mid 2 \cdot 5^3 \cdot 13^2     &\land 5 \nmid a^{25} - 39 \\ 
+    13 \mid 2 \cdot 5^3 \cdot 13^2    &\land 13 \mid a^{25} - 39 \\
+    13^2 \mid 2 \cdot 5^3 \cdot 13^2  &\land 13^2 \nmid a^{25} - 39 \\
+  \end{align*}
+  es posible concluir que
+  \begin{empheq}[box=\widefbox]{align*}
+  (a^{25}-39 : 2 \cdot 5^3 \cdot 13^2) = 2 \cdot 13 = 26
+  \end{empheq}
 
 %------------------------------------------------------------------------------
 % Ejercicio 3
