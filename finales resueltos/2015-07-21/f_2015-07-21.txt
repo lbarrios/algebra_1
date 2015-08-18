@@ -1,0 +1,7 @@
+1) Sean f(x) y g(x) de R->R y sean 
+(f(x))^3 + g(f(x)) . f(x) y f(x^3+g(x) . x) biyectivas, demostrar que f(x) es biyectiva.
+2) Sea p primo, demostrar:
+a) La suma de las raíces primitivas de la unidad Gp es igual a -1
+b) La suma de las raíces primitivas de la unidad G(p^2) es igual a 0
+3) Para qué p primos se cumple que: 2p / 255p+1 + 205 (no estoy muy seguro de si efectivamente los números eran 255 y 205)
+4) Demostrar que X^3+X^2+X+1 divide a X^(4a)+ X^(4b+9) +X^(4c+7) +X^(4d+2) en Q [x] (Sean a,b,c,d Naturales)

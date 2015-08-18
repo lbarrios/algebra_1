@@ -7,14 +7,15 @@
 %------------------------------------------------------------------------------
 % TITLE SECTION
 %------------------------------------------------------------------------------
-\title{Álgebra I - Final}
-\author{Leandro Ezequiel Barrios}
-\date{28/07/2015}
+\title{Álgebra I - Examen Final\\28/07/2015}
+\author{\small Leandro Ezequiel Barrios \\ \footnotesize(lbarrios at dc.uba.ar)}
+\date{}
 \maketitle
 
 %------------------------------------------------------------------------------
 % Ejercicio 1
 %------------------------------------------------------------------------------
+\newpage
 \section{%
   Sea $\mathfrak{R}$ la relación en $A := \{10, ..., 1000\}$ %
   definida por $(n:m) \neq 1.$%
@@ -31,18 +32,21 @@
     %--------------------------------------------------------------------------
     % Reflexividad
     %--------------------------------------------------------------------------
-    \item Reflexividad: $\forall a \in A,\> a\mathfrak{R}a$
+    \item Reflexividad: $\mathfrak{R}$ es reflexiva si 
+    $\forall a \in A,\> a\mathfrak{R}a$
     \begin{align*}
       a\mathfrak{R}a \iif (a:a) &\neq 1 \\
       (a:a) &= a \\
-      a &\neq 1
+      a \in A \then a &\neq 1
     \end{align*}
-    Luego, $a\mathfrak{R}a$, entonces $\mathfrak{R}$ es reflexiva.
+    Luego, $(a:a) \neq 1 \then a\mathfrak{R}a$, 
+    entonces $\mathfrak{R}$ es reflexiva.
 
     %--------------------------------------------------------------------------
     % Simetría
     %--------------------------------------------------------------------------
-    \item Simetría: $\forall n,m \in A,\> n\mathfrak{R}m \iif m\mathfrak{R}n$
+    \item Simetría: $\mathfrak{R}$ es simétrica si 
+    $\forall n,m \in A,\> n\mathfrak{R}m \iif m\mathfrak{R}n$
     \begin{align*}
       n\mathfrak{R}m      &\iif (n:m) \neq 1\\
       (n:m) \neq 1 \quad  &\iif \quad (m:n) \neq 1 \\
@@ -54,7 +58,7 @@
     %--------------------------------------------------------------------------
     % Antisimetría
     %--------------------------------------------------------------------------
-    \item Antisimetría: $\forall n,m \in A,\> 
+    \item Antisimetría: $\mathfrak{R}$ es antisimétrica si $\forall n,m \in A,\> 
     n\mathfrak{R}m \land m\mathfrak{R}n \then n=m$
 
     Basta con encontrar un contraejemplo para ver que $\mathfrak{R}$ 
@@ -63,8 +67,8 @@
       (10:20) \neq 1 \iif 10\>\mathfrak{R}\>20 \\
       (20:10) \neq 1 \iif 20\>\mathfrak{R}\>10
     \end{align*}
-    $10\mathfrak{R}20 \land 20\mathfrak{R}10$, pero $10 \neq 20$, por lo que
-    $\mathfrak{R}$ no es antisimétrica.
+    Luego, $10\mathfrak{R}20 \land 20\mathfrak{R}10$, pero $10 \neq 20$, 
+    por lo que $\mathfrak{R}$ no es antisimétrica.
 
     %--------------------------------------------------------------------------
     % Transitividad
@@ -91,6 +95,7 @@
 
   \end{itemize}
 
+  \newpage
   \subsection{%
   Encuentre la cantidad de $m \in A$ tales que $m\> \mathfrak{R}\> 12$%
   }
@@ -182,6 +187,7 @@
 %------------------------------------------------------------------------------
 % Ejercicio 2
 %------------------------------------------------------------------------------
+\newpage
 \section{%
   Sea $a \in \Z$ tal que $(a^{182}-26:130) = 13$. %
   Calcule $(a^{25}-39:2 \cdot 5^3 \cdot 13^2)$%
@@ -286,6 +292,7 @@
 
   es decir que, para $a \equivfive 3$, $a^{25} - 39$ no es múltiplo de 5.
 
+  \newpage
   \subsection*{Caso $a \equivfive 4$:}
   \begin{align*}
     a \equivfive 2 \then a^{182} - 26 &\equivfive 4^{182} - 26              \\
@@ -317,6 +324,7 @@
 %------------------------------------------------------------------------------
 % Ejercicio 3
 %------------------------------------------------------------------------------
+\newpage
 \section{%
   Para cada $n \in \N$, encuentre el resto de dividir por $7$ a $n^{3n}$%
   en términos de una congruencia apropiada de $n$.%
@@ -535,8 +543,9 @@ Caso:~ k \equivtwo 1 &\iif k+1 \equivtwo 0 & \iif n = 7k + 6 \equivtwo 7+6 \equi
 \end{itemize}
 
 %------------------------------------------------------------------------------
-% Ejercicio 3
+% Ejercicio 4
 %------------------------------------------------------------------------------
+\newpage
 \section{%
 Sea $f \in \Q[X]$ el polinomio $f = X^4 + X^3 + X^2 + X + 1$.%
 }
@@ -546,6 +555,159 @@ Sea $f \in \Q[X]$ el polinomio $f = X^4 + X^3 + X^2 + X + 1$.%
   \subsection{%
     Pruebe que $f$ es irreductible en $\Q[X]$.%
   }
+
+  Primero, voy a intentar reducir el polinomio por alguna de sus raíces
+  enteras, utilizando el método de Gauss. El término independiente es 1, y el
+  coeficiente principal es 1, por lo que las posibles raíces son 1 y -1.
+
+  \begin{align*}
+    f(1) &= 1^4 + 1^3 + 1^2 + 1 + 1 = 5 \\
+    f(\minus1) &= (\minus1)^4 + (\minus1)^3 + (\minus1)^2 + (\minus1) + 1 %
+      = \cancel{1 - 1} + \cancel{1 - 1} + 1 = 1
+  \end{align*}
+
+  Como el polinomio no tiene raíces enteras, voy a intentar expresarlo de una
+  forma que me quede más cómoda.
+
+  \begin{align*}
+    (X^4+X^3+X^2+X+1)&=(X^4+X^3+X^2+X+1) \cdot \frac{X-1}{X-1} \\
+    (X^4+X^3+X^2+X+1)&=\frac{X(X^4+X^3+X^2+X+1) - (X^4+X^3+X^2+X+1)}{X-1} \\
+    (X^4+X^3+X^2+X+1)&=\frac{(X^5+X^4+X^3+X^2+X) - (X^4+X^3+X^2+X+1)}{X-1} \\
+    (X^4+X^3+X^2+X+1)&=\frac{X^5+(X^4-X^4)+(X^3-X^3)+(X^2-X^2)+(X-X)-1}{X-1} \\
+    (X^4+X^3+X^2+X+1)&=\frac{X^5+\cancel{(X^4-X^4)}+\cancel{(X^3-X^3)}+%
+      \cancel{(X^2-X^2)}+\cancel{(X-X)}-1}{X-1} \\
+    (X^4+X^3+X^2+X+1)&=\frac{X^5-1}{X-1} \\
+  \end{align*}
+
+  \begin{align*}
+    (X^4+X^3+X^2+X+1)&=\frac{X^5-1}{X-1} \\
+    &\then \\
+    (X^4+X^3+X^2+X+1)=0 &\iif \frac{X^5-1}{X-1}=0
+  \end{align*}
+
+  Luego, asumo $X_0 \neq 1 \iif (X-1) \neq 0$, y puedo despejar multiplicando
+  por $(X-1)$ en ambos lados.
+  \begin{align*}
+    \frac{X^5-1}{X-1}\cdot(X-1)                   &= 0\cdot(X-1) \\
+    \frac{X^5-1}{\cancel{X-1}}\cdot\cancel{(X-1)} &= 0\cdot\cancel{(X-1)} \\
+    X^5-1                                         &= 0 \\
+    X^5                                           &= 1 \\
+    X                                             &= \sqrt[5]{1} \\
+  \end{align*}
+
+  Por definición, 
+  \begin{align*}
+    X=\sqrt[5]{1} &\iif X\in G_5 = \{e^{\frac{2k\pi}{5}i}, 0\leq k < 5\} \\
+    X=\sqrt[5]{1} &\iif X\in \{e^{0i}, e^{\frac{2\pi}{5}i}, %
+    e^{\frac{4\pi}{5}i}, e^{\frac{6\pi}{5}i}, e^{\frac{8\pi}{5}i}\}
+  \end{align*}
+
+  entonces las raíces del polinomio son 5, y excepto $X_0 = e^{0i} = 1$ el resto
+  pertenecen a $\C$ (puesto que la única raíz que no pertenecería a $\C$ es -1,
+  y es fácil ver que $(-1)^5 \neq 1$). 
+
+  Luego, como $(X^4+X^3+X^2+X+1) =\frac{X^5-1}{X-1}$, las raíces de $f$ son las
+  mismas que las de $X^5-1$, sin contar $X_0 = 1$. Y estas pertenecen a \C, por
+  lo que no pertenecen a \Q, por lo que $f$ no es divisible por ningún polinomio
+  de grado 1 en \Q.
+
+  Para probar que $f$ es irreducible en $\Q[X]$, basta con mostrar que $f$ no
+  tampoco es divisible por ningún polinomio de grado 2 o 3 en \Q. Dicho
+  polinomio, si existe, debe ser producto por los polinomios de grado 1 formados
+  con las raíces encontradas anteriormente. 
+
+  Entonces dadas las raíces $Z_i = a+bi \neq 1, Z_i'=a'+b'i \neq 1$, sabemos 
+  que los polinomios $X-(a+bi)$ y $X-(a'+b'i)$ dividen a $f$, por lo que
+  \begin{align*}
+  (X-a-bi)\cdot(X-a'-b'i)=X^2 -Xa' -Xb'i -aX +aa' +ab'i -biX +bia +bib'i \\
+  (X-a-bi)\cdot(X-a'-b'i)=X^2 -a'X -b'iX -aX -biX +aa' +ab'i +bia +bib'i \\
+  (X-a-bi)\cdot(X-a'-b'i)=X^2 + (-a'-a -b'i-bi)X +aa' +ab'i +bia +(-1)bb' \\
+  (X-a-bi)\cdot(X-a'-b'i)=X^2 + (-(a'+a) -(b'i+bi))X +aa' +ab'i +bia -bb'
+  \end{align*} 
+  divide a $f$. Para ver que este polinomio no pertenece a $\Q[X]$, debemos
+  mirar si los coeficientes pertenecen a $\Q[X]$. En particular, si miramos
+  el coeficiente de grado 1, podemos notar que su parte imaginaria debería
+  ser necesariamente igual a cero.
+
+  \begin{align*}
+    -(a'+a) -(b'i+bi) \in \Q &\iif \mathfrak{IM}(-(a'+a) -(b'i+bi)) = 0 \\
+    -(a'+a) -(b'i+bi) \in \Q &\iif -(b'i+bi) = 0 \iif b'i + bi = 0 \\
+    -(a'+a) -(b'i+bi) \in \Q &\iif b'i = -bi
+  \end{align*}
+
+  Y dado que $Z_i$ y $Z_i'$ son raíces quintas de la unidad,
+  \[
+    b'i = -bi \iif Z_i' = \overline{Z_i}
+  \]
+
+  Siendo las raíces y sus conjugados,
+  \begin{align*}
+    Z_1 = e^{\frac{2\pi}{5}i} \then \overline{Z_1} = e^{\frac{-2\pi}{5}i}
+      = e^{\frac{10\pi-2\pi}{5}i} = e^{\frac{8\pi}{5}i} = Z_4 \\
+    Z_2 = e^{\frac{4\pi}{5}i} \then \overline{Z_2} = e^{\frac{-4\pi}{5}i}
+      = e^{\frac{10\pi-4\pi}{5}i} = e^{\frac{6\pi}{5}i} = Z_3 \\
+    Z_3 = e^{\frac{6\pi}{5}i} \then \overline{Z_3} = e^{\frac{-6\pi}{5}i}
+      = e^{\frac{10\pi-6\pi}{5}i} = e^{\frac{4\pi}{5}i} = Z_2 \\
+    Z_4 = e^{\frac{8\pi}{5}i} \then \overline{Z_4} = e^{\frac{-8\pi}{5}i}
+      = e^{\frac{10\pi-8\pi}{5}i} = e^{\frac{2\pi}{5}i} = Z_1 \\
+  \end{align*}
+
+  los posibles valores para $Z_i$ y $Z_i'$ son
+  \[\begin{cases}
+    Z_i = Z_1 \land Z_i' = Z_4 \\
+    Z_i = Z_2 \land Z_i' = Z_3
+  \end{cases}\]
+
+  Quiero ver si $(X-Z_1)(X-Z_4) \in \Q[X]$ o $(X-Z_2)(X-Z_3) \in \Q[X]$.
+  \[
+    (X-Z_1)(X-Z_4) \in \Q[X] \iif a_1,b_1,c_1 \in Q, (X-Z_1)(X-Z_4)=a_1X^2+b_1X+c_1
+  \]
+  \[
+    (X-Z_2)(X-Z_3) \in \Q[X] \iif a_2,b_2,c_2 \in Q, (X-Z_2)(X-Z_3)=a_2X^2+b_2X+c_2
+  \]
+
+  \begin{align*}
+    a_1X^2+b_1X+c_1&=(X-z_1)(X-z_4) \\
+    a_1X^2+b_1X+c_1&=X^2+X(-z_4)-z_1X-z_1(-z_4) \\
+    a_1X^2+b_1X+c_1&=X^2+ (-z_4-z_1)X + z_1 \cdot z_4 \\
+  \end{align*}
+
+  Entonces, $a_1,b_1,c_1 \in \Q 
+  \iif a_1 = 1 ~\land~ b_1 = -(z_4+z_1) ~\land~ c_1 = z_1 \cdot z_4$. 
+  Luego, $a_1 \in \Q$ trivialmente, y $b_1$ ya vimos que también está en $\Q$. 
+  Pero $c_1$ es el producto de dos números complejos, y sabemos que 
+  $c_1 \in \Q \iif \mathfrak{IM}(c_1) = 0$ o, lo que es lo mismo, si el 
+  argumento de $c_1$ es $0$, es decir, si $arg(z_1 \cdot z_4)=0$.
+  Pero $arg(z_1 \cdot z_4) = arg(z_1) + arg(z_4)$
+
+  \vspace{3em}
+
+  En este punto me cansé...
+
+  \newpage
+  Sea $f \in \Q[X]$ el polinomio $f = X^4 + X^3 + X^2 + X + 1$.
+
+  Pruebe que $f$ es irreductible en $\Q[X]$.
+  \newline
+  ---------------------------------------------------------------------------------------------------------------------------------------
+  \newline
+
+  Sean $z_1$, $z_2$, $z_3$ y $z_4$ las raíces del polinomio $f$, tal que
+  \[
+    X^4 + X^3 + X^2 + X + 1 = (a_1x-z_1)(a_2x-z_2)(a_3x-z_3)(a_4x-z_4)
+  \]
+
+  Distribuyendo los factores,
+  \[
+    (a_1x-z_1)(a_2x-z_2)(a_3x-z_3)(a_4x-z_4) = a_1a_2a_3a_4x^4 \cdots + (z_1z_2z_3z_4)
+  \]
+
+  es fácil ver que el término independiente está dado por $(z_1z_2z_3z_4)$,
+  de lo que se desprende que
+  \begin{align*}
+    a_1a_2a_3a_4x^4 \cdots + (z_1z_2z_3z_4) &= X^4 + X^3 + X^2 + X + 1 \\
+    (z_1z_2z_3z_4) &= 1
+  \end{align*}
 
   %------------------------------------------------------------------------------
   % Item B
